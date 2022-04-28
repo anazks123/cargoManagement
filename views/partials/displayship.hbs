@@ -1,0 +1,51 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div class="jumbotron">
+            <table class="table table-borderless" id="example1">
+            <thead>
+                <tr>
+                <th scope="col">ShipName</th>
+                <th scope="col">IMO Number</th>
+                <th scope="col">ShipMaster Name</th>
+                <th scope="col">Capacity</th>
+               
+               
+                
+                   
+                     <th scope="col">Delete</th>
+                      <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{# each ships}}
+                <tr>
+                        <td>{{this.ShipName}}</td>
+                        <td>{{this.ImoNumber}}</td>
+                        <td>{{this.ShipMasterName.CustomerName}}</td>
+                        <td>{{this.capacity}}</td>
+                        
+                          <td><a href="/delete1/Ship/{{this._id}}"  style="margin-top:10px;"><i class="fa fa-trash" aria-hidden="true" style="color:#557a95"></i></a></td>
+                           <td><a href="/updateShip/{{this._id}}"  style="margin-top:10px;"><i class="fa fa-pencil" aria-hidden="true"  style="color:#557a95" ></i></a></td>
+
+
+
+
+                          
+
+
+
+
+
+
+
+                </tr>
+                {{/each}}
+               
+            </tbody>
+            </table>
+        </div>
+    </body>
+</html>

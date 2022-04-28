@@ -1,0 +1,36 @@
+<center><h2>Transportation History</h2></center>
+
+<table class="table table-borderless" id="example7">
+            <thead>
+                <tr>
+                <th scope="col">CustomerName</th>
+                 <th scope="col">ShipNumber</th>
+                <th scope="col">Number Of Container</th>
+                <th scope="col">City</th>
+                <th scope="col">Shipment Type</th>
+
+                   
+                    <th scope="col">Requested On</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                {{# each hist}}
+                <tr>
+                
+                        <td>{{this.CustomerId.CustomerName}}</td>
+                        <td>{{this.ShipId.ShipName}}</td>
+                        <td>{{this.NumberContainer}}</td>
+                         <td>{{this.city}}</td>
+                         <td>{{this.ShipmentType}}</td>
+                          <td>{{this.RequestedOn}}</td>
+                       
+                       
+                </tr>
+                {{/each}}
+               
+            </tbody>
+            </table>
+
+
+           

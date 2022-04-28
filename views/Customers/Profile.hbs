@@ -1,0 +1,151 @@
+{{>CustHeader}}
+
+<div class="container">
+    <center><h3 style="margin-top: 2%;">I N F O R M A T I O N</h3></center>
+    <div class="jumbotron" style="margin-top: 2%;">
+
+
+        <div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Information
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+          
+                <form action="/profileUpdateCustomer?_csrf={{csrfToken}}" method="post">
+
+               <div class="row">
+                 <div class="col" style="float:right;">
+                 <button style="background-color:#557a95;font-weight:bolder;border:none;" type="button" class="btn btn-primary" onclick="EnableDisableTextBox(this)">Edit Profile</button></div></div>
+        <script type="text/javascript">
+            function EnableDisableTextBox(btnPassport) {
+                var custName = document.getElementById("custName").removeAttribute("readonly");
+                var email = document.getElementById("email").removeAttribute("readonly");
+                var city = document.getElementById("city").removeAttribute("disabled");
+                var contact = document.getElementById("contact").removeAttribute("readonly");
+                var btnedit = document.getElementById("btnedit").removeAttribute("disabled");
+               
+                 
+               
+            }
+        </script>
+                {{# each profileCust}}
+                 
+                    <div class="form-group row">
+                        <input type="hidden" name="_id" value="{{this._id}}">
+                        <label for="staticEmail" class="col-sm-2"><b>CustomerName</b></label>
+                        <div class="col-sm-10
+                        ">
+                        {{!-- <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{allocData.CustomerId.CustomerName}}"> --}}
+                        <input type="text" name="custname" class="form-control-plaintext" value="{{this.CustomerName}}" id= "custName" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2"><b>Email</b></label>
+                        <div class="col-sm-10">
+                       <input type="text" name="email" value="{{this.email}}" class="form-control-plaintext" id= "email" readonly>
+                        </div>
+                    </div>
+                     <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2"><b>Gender</b></label>
+                        <div class="col-sm-10">
+                        <input type="text" name="gender" value="{{this.gender}}" class="form-control-plaintext"  readonly>
+                        </div>
+                    </div> 
+                    
+
+                  
+                   
+                    
+
+                     <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2"><b>City</b></label>
+                        <div class="col-sm-10">
+                        <select class="col-sm-8 form-control" id= "city" name="city" disabled="disabled">
+                            <option selected disabled>{{this.city}}</option>
+                 {{/each}}
+                            {{# each cityCust}} 
+                            <option value="{{this.cityName}}">{{this.cityName}}</option>
+                               
+                            {{/each}}
+                        </select>
+                        
+                        </div>
+                        
+                    </div>
+                    {{# each profileCust}}
+                     <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2"><b>Contact Number</b></label>
+                        <div class="col-sm-10">
+                        <input type="text" name="contact" value="{{this.Contact}}" class="form-control-plaintext" id= "contact" readonly>
+                        </div>
+                    </div> 
+
+                    <div class="row">
+                      <div class="col-sm-12">
+                         <center><input type="submit" class="btn btn-primary col-md-6" style="margin-top: 20px;background-color:#557a95;font-weight:bolder;border:none;" id= "btnedit" value="GO" disabled></center>
+                       
+                      </div>
+
+                       
+                        
+                       
+                        
+                    </div>
+                   
+                {{/each}}
+            </form>
+
+
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Change Password
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+          <form action="/changepassword?_csrf={{csrfToken}}" method="POST">
+              {{# each profileCust}}
+           <div class="row">
+               <div class="col-md-4">
+                    <input type="hidden" name="_id" value="{{this._id}}" placeholder="Enter old password" class="form-control">
+                   <input type="password" name="old" placeholder="Enter old password" class="form-control">
+               </div>
+                <div class="col-md-4">
+                   <input type="password" name="new" placeholder="Enter new password" class="form-control">
+               </div>
+                <div class="col-md-4">
+                   <input type="password" name="again" placeholder="Enter new password again" class="form-control">
+               </div>
+           </div>
+           <div class="row">
+               <div class="col-md-12" style="margin-top: 2%;">
+                    {{!-- <input type="hidden" name="_csrf" value="{{csrfToken}}"> --}}
+                  <center><input type="submit" name="change" class="btn btn-primary" style="background-color:#557a95;font-weight:bolder;border:none;"></center>
+                  
+               </div>
+               
+           </div>
+           {{/each}}
+           </form>
+   </div>
+    </div>
+  </div>
+  
+</div>
+
+    </div>
+</div>
+

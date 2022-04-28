@@ -1,0 +1,63 @@
+{{>AdminHeader}}
+
+
+<div class="container col-md-6" style="margin-top: 4%;">
+    <div class="jumbotron" style="background-color:">
+        <center><h3 style="color: #557a95;font-weight:bolder;">Add Here</h3></center>
+        <form action="/updateTransportationRequest" method="post">
+            <div class="row col-md-12" style="margin-top: 20px;">
+                <div class="col">
+                    <input type="hidden" name="_id" value="{{itemsUpdated._id}}">
+                <input type="text" class="form-control styling" placeholder="Number of containers" name="numcontainer" value="{{itemsUpdated.NumberContainer}}">
+                </div>
+            </div> 
+                
+           
+              <div class="row col-md-12" style="margin-top: 20px;">
+                <div class="col">
+                    <select name="city" class="form-control styling">
+                    <option value="{{itemsUpdated.city}}" selected>{{itemsUpdated.city}}</option>
+                   
+                    {{#each cityDataTransportation}}
+                       
+
+                        <option value="{{this.cityName}}">
+                            {{this.cityName}}
+                        </option>
+
+                    {{/each}}
+                 
+
+                            
+                     </select>
+                </div>
+                
+            </div>
+
+             <div class="row col-md-12" style="margin-top: 20px;">
+                <div class="col">
+                <input type="text" class="form-control styling" placeholder="Shipment Type" name="shipmenttype" value="{{itemsUpdated.ShipmentType}}">
+                </div>
+            </div> 
+
+           
+
+             <input type="hidden" name="_csrf" value="{{csrfToken}}">
+       <center><button type="submit" class="btn btn-primary col-md-6 styling" style="margin-top: 20px;font-size:larger;background-color:#557a95;border:none;">Submit</center> 
+            
+            </form>
+
+
+            <div style="margin-top: 10px;">
+
+            {{#if hasErrors}}
+        <div class="alert" role="alert">
+           {{# each messages}}
+               <center><p style="color:red;font-weight:bolder"> {{this}}</p></center>
+           {{/each}}
+        </div>
+        {{/if}}
+        </div>
+
+
+    </div>

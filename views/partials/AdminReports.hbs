@@ -1,0 +1,139 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+        <title></title>
+        <style>
+            canvas{
+                margin-top: 50px;
+                width: 550px!important;
+                height: 300px!important;
+            }
+        </style>
+    </head>
+    <body>
+        <center><h3>Reports</h3></center>
+        <div class="container-fluid">
+              {{!-- <div class="jumbotron" style="background-color: whitesmoke!important;height:fit-content;width:600px;margin-top:50px;"> --}}
+            <div class="row" style="display: inline-block;">
+                <div class="col">
+                    <canvas id="myChart"></canvas>
+                 </div>
+            </div>
+            
+            
+        </div>
+        <hr>
+        <div class="container-fluid">
+            <div class="row">
+            <div class="alert alert-light col-md-4" role="alert" style="background-color: #950740;!important;color:white!important;">
+                <center><h5>Total Customers : {{totalcust}}</h5></center>
+            </div>&nbsp;&nbsp;&nbsp;
+            <div class="alert alert-danger col-md-4" role="alert" style="background-color: #d8c3a5;!important;color:white!important;">
+                <center><h5>Total Shipmasters : {{totalsmaster}}</h5></center>
+            </div>
+             <div class="alert alert-warning col-md-4" role="alert" style="background-color: #123c69;!important;color:white!important;">
+                <center><h5>Accepted Transportation : {{getacc}} </h5></center>
+            </div>&nbsp;&nbsp;&nbsp;
+             <div class="alert alert-primary col-md-4" role="alert" style="background-color: #45a29e;!important;color:white!important;">
+                <center><h5>Rejected <br> Transportation : {{getrej}}</h5></center>
+            </div>
+        </div>
+        </div>
+        {{!-- <script>
+            let myChart=document.getElementById('myChart').getContext('2d');
+
+            Chart.defaults.global.defaultFontFamily='Lato';
+              Chart.defaults.global.defaultFontSize=18;
+                Chart.defaults.global.defaultFontColor='#777';
+            let massPopChart=new Chart(myChart,{
+                type:'pie',
+                data:{
+                    labels:['Bardoli','Surat','Navsari','Vyara','Valsad','Mota'],
+                    datasets:[{
+                        data:[
+                            617594,
+                            181045,
+                            153060,
+                            106519,
+                            105162,
+                            95072
+                        ],
+                        backgroundColor:[
+                        'rgba(255,99,132,0.6)',
+                        'rgba(54,162,235,0.6)',
+                        'rgba(255,206,86,0.6)',
+                        'rgba(75,192,192,0.6)',
+                        'rgba(153,102,255,0.6)',
+                        'rgba(255,159,64,0.6)',
+                        'rgba(255,99,132,0.6)'
+                        
+                        
+
+
+                        ],
+                        borderWidth:1,
+                        borderColor:'#777',
+                        hoverBorderWidth:3,
+                        hoverBorderColor:'#000'
+                    }]
+
+                },
+                options:{}
+            });
+        </script> --}}
+
+
+
+
+
+
+      
+
+        <script>
+            let myChart=document.getElementById('myChart').getContext('2d');
+
+            Chart.defaults.global.defaultFontFamily='Lato';
+              Chart.defaults.global.defaultFontSize=18;
+                Chart.defaults.global.defaultFontColor='#777';
+            let massPopChart=new Chart(myChart,{
+                type:'pie',
+               
+                data:{
+                    labels:['Customers','ShipMasters'],
+                    datasets:[{
+                        data:[{{totalcust}},{{totalsmaster}}],
+                          backgroundColor:'white',
+                        borderWidth:1,
+                        backgroundColor:[
+                        '#2f4454',
+                        '#da7b93'
+                        
+                        
+                        
+
+
+                        ],
+                        hoverBorderWidth:3,
+                        hoverBorderColor:'#000'
+                    }]
+
+                },
+                options:{}
+            });
+
+
+
+
+
+
+            
+        </script>
+
+
+
+
+        
+        
+        
+    </body>
+</html>

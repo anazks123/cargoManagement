@@ -1,0 +1,91 @@
+
+ 
+
+
+
+
+
+            
+
+<style>
+    .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #557a95;
+    border: none;
+   
+}
+
+
+.jumbotron
+{
+    background-color: #E3E3E3!important;
+    opacity: 1;
+    
+}
+.styling{
+    font-family: Calibri;
+}
+body{
+   /* background-image: url('/images/bg1.png');
+    background-size: cover;
+    background-repeat: no-repeat;*/
+
+}
+</style>
+<body>
+
+{{>VisitorHeader}}
+<div class="container col-md-6">
+    <div class="jumbotron" style="margin-top: 20%;">
+         <center><h3 style="color: #557a95;font-weight:bolder;">Get OTP</h3></center>
+         
+            
+               <form action="/checkOTP"  method="post">
+            <div class="row col-md-18" style="margin-top: 20px;">
+                 <div class="col-md-12 form-inline">
+                   
+                            <input type="text" class="form-control styling col-md-10" placeholder="OTP" name="otp">
+                             <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                            <input type="submit" class="btn btn-primary col-md-2" value="GO">
+                   
+                </div>
+
+            </div>
+                
+           
+                 
+                
+            
+
+             
+
+            
+
+           
+        
+            
+   
+            
+            </form>
+           
+       
+
+    </div>
+
+            <div style="margin-top: 10px;">
+
+            {{#if hasErrors}}
+        <div class="alert" role="alert">
+           {{# each msg}}
+               <center><p style="color: red;font-weight:bolder;"> {{this}}</p></center>
+           {{/each}}
+        </div>
+        {{/if}}
+        </div>
+
+
+    </div>
+</div>
+
+ 
+
+</body>

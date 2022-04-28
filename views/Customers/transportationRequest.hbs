@@ -1,0 +1,145 @@
+{{>CustomerHeader}}
+<style>
+    .nav-pills{
+		    color:white;
+        }
+		.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+                color: white;
+                background-color:#557a95;
+        }
+        
+
+</style>
+
+<div class="container col-md-6">
+    <center>
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" style="background-color: gray;border-radius:100px;margin-top:5%;">
+						<li class="nav-item">
+							<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true" style="color: white!important">Add Request</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false" style="color: white!important">View Request Status</a>
+						</li>
+						
+					</ul>
+					<div class="tab-content" id="pills-tabContent">
+						<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+
+
+
+                                <div class="jumbotron" style="">
+        <center><h3 style="color: #557a95;font-weight:bolder;">Add Here</h3></center>
+        <form action="/Customers/transportationRequest" method="post">
+            <div class="row col-md-12" style="margin-top: 20px;">
+                <div class="col">
+                <input type="text" class="form-control styling" placeholder="Number of containers" name="numcontainer" oninvalid="setCustomValidity('Invalid Customer name')">
+                </div> 
+                
+           
+              <div class="row col-md-12" style="margin-top: 20px;">
+                <div class="col">
+                    <select name="city" class="form-control styling">
+                    <option selected disabled>Select City</option>
+                    {{#each items}} 
+                        
+                        <option value="{{this.cityName}}">
+                            {{ this.cityName}}
+                        </option>
+                    {{/each}}
+                     </select>
+                </div>
+                
+            </div>
+
+            <div class="row col-md-12" style="margin-top: 20px;">
+                <div class="col">
+                <input type="text" class="form-control styling" placeholder="Type" name="shipmenttype">
+                </div>
+               
+            </div>
+
+            
+            
+
+             
+
+             <input type="hidden" name="_csrf" value="{{csrfToken}}">
+       <center><button type="submit" class="btn btn-primary col-md-12 styling" style="margin-top: 20px;font-size:larger;background-color:#557a95;border:none;">Submit</center> 
+            
+            </form>
+
+
+            <div style="margin-top: 10px;">
+
+            {{#if hasErrors}}
+        <div class="alert" role="alert">
+           {{# each messages}}
+               <center><p style="color:red;font-weight:bolder"> {{this}}</p></center>
+           {{/each}}
+        </div>
+        {{/if}}
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+						</div>
+						<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+
+<div class="container">
+
+                                <table class="table table-borderless" id="example4">
+            <thead>
+                <tr>
+                <th scope="col">Customer Name</th>
+               
+                <th scope="col">Number of containers</th>
+                <th scope="col">City</th>
+               
+                
+                    <th scope="col">Shipment Type</th>
+                    <th scope="col">Status</th>
+                     <th scope="col">Delete</th>
+                      <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{# each items2}}
+                <tr>
+                
+                        <td>{{this.CustomerId.CustomerName}}</td>
+                        
+                        <td>{{this.NumberContainer}}</td>
+                         <td>{{this.city}}</td>
+                         <td>{{this.ShipmentType}}</td>
+                         <td>{{this.Status}}</td>
+                         <td><a href="/delete/ShipMaster/{{this._id}}"  style="margin-top:10px;"><i class="fa fa-toggle-off" aria-hidden="true" style="color:#557a95"></i></a></td>
+                          <td><a href="/Update/{{this._id}}"  style="margin-top:10px;"><i class="fa fa-toggle-on" aria-hidden="true"  style="color:#557a95" ></i></a></td>
+                </tr>
+                {{/each}}
+               
+            </tbody>
+            </table>
+
+
+
+
+
+                        </div>
+						
+					</div>
+    </center>
+
+</div>
+</div>

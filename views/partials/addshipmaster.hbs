@@ -1,0 +1,86 @@
+<html>
+<head>
+    <style>
+        
+    </style>
+</head>
+<body>
+
+<div class="container col-md-6">
+    <div class="jumbotron" style="background-color:transparent!important;">
+        <center><h3 style="color: #557a95;font-weight:bolder;">Register Here</h3></center>
+        <form action="/ShipMaster/addshipmaster" method="post">
+            <div class="row col-md-12" style="margin-top: 20px;">
+                <div class="col">
+                <input type="text" class="form-control styling" placeholder="Name" name="name" pattern="^[a-zA-Z ]*$" oninvalid="setCustomValidity('Invalid Customer name')">
+                </div> 
+                
+            </div>
+                <div class="row col-md-12" style="margin-top: 20px;">
+                <div class="col">
+                <input type="text" class="form-control styling"  onkeypress="return event.charCode>=48 && event.charCode<=57" maxlength="10" placeholder="Contact Number" name="contact" pattern="^[6|7|8|9][0-9]{9}$" oninvalid="setCustomValidity('Invalid Contact Number')">
+                </div>
+              
+            </div>
+              <div class="row col-md-12" style="margin-top: 20px;">
+                <div class="col">
+                    {{!-- <select name="city" class="form-control styling">
+                    <option selected disabled>Select City</option>
+                    
+                        
+                        <option value="{{this.cityName}}">
+                         
+                        </option>
+                    {{/each}} --}}
+                    <input type="text" class="form-control styling" placeholder="Enter City" name="city">
+
+                     </select>
+                </div>
+                
+            </div>
+
+            <div class="row col-md-12" style="margin-top: 20px;">
+                <div class="col col-md-6">
+                <input type="text" class="form-control styling" placeholder="Email Address" name="email">
+                </div>
+                <div class="col col-md-6">
+                <input type="password" class="form-control styling" placeholder="Password" name="password">
+                </div>
+            </div>
+
+            <div class="row col-md-12" style="margin-top: 20px;">
+                <div class="col">
+                    <select name="gender" class="form-control styling">
+                          <option selected disabled>Select Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+                
+            </div>
+            
+
+             
+
+             <input type="hidden" name="_csrf" value="{{csrfToken}}">
+       <center><button type="submit" class="btn btn-primary col-md-6 styling" style="margin-top: 20px;font-size:larger;background-color:#557a95;border:none;">Submit</center> 
+            
+            </form>
+
+
+            <div style="margin-top: 10px;">
+
+            {{#if hasErrors}}
+        <div class="alert" role="alert">
+           {{# each messages}}
+               <center><p style="color:red;font-weight:bolder"> {{this}}</p></center>
+           {{/each}}
+        </div>
+        {{/if}}
+        </div>
+
+
+    </div>
+</div>
+</body>
+</html>

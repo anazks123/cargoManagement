@@ -1,0 +1,106 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        {{!-- <div class="jumbotron">
+            <table class="table table-borderless" id="example">
+            <thead>
+                <tr>
+                <th scope="col">Ship Name</th>
+                <th scope="col">ShipMaster Name</th>
+                <th scope="col">Containers</th>
+                <th scope="col">City</th>
+
+                
+                    <th scope="col">Shipment Type</th>
+                    <th scope="col">Requested Date</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {{# each getAllocationData1}}
+                <tr>
+                        <td>{{this.ShipId.ShipName}}</td>       
+                
+                {{/each}}
+                {{# each smdata}}        
+                        <td>{{this.ShipMasterName.CustomerName}}</td> 
+                {{/each}}
+                  {{# each getAllocationData1}}         
+                           
+                        <td>{{this.NumberContainer}}</td>
+                         <td>{{this.city}}</td>
+                         <td>{{this.ShipmentType}}</td>
+                         <td>{{this.RequestedOn}}</td>
+
+                         
+                </tr>
+                {{/each}}
+          
+            </tbody>
+            </table>
+
+
+           
+        </div> --}}
+        <div class="container">
+            <h3 style="color: #557a95;"><center><b>Information</b></center></h3>
+            <div class="row" style="margin-top: 3%;">
+        {{# if getAllocationData1}}
+        {{# each getAllocationData1}}
+            <div class="col-sm-3">
+         <div class="card border-light " style="max-width: 18rem;">
+                <div class="card-header" style="background-color: #557a95;color:white;"><b>Allocation Data</b></div>
+                <div class="card-body">
+                   
+                    <p class="card-text"><b>ShipName : </b>{{this.ShipId.ShipName}}</p>
+                    <p class="card-text"><b>Containers : </b>{{this.NumberContainer}}</p>
+                    <p class="card-text"><b>City : </b>{{this.city}}</p>
+                    <p class="card-text"><b>Shipment Type : </b>{{this.ShipmentType}}</p>
+                    <p class="card-text"><b>Requested On : </b>{{this.RequestedOn}}</p>
+                    {{!-- 
+
+
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{this.id}}">
+                                      About Shipmaster
+                             </button>  --}}
+
+                             <center>
+                                 <a href="/getShipMasterData/{{this.ShipId.ShipName}}" class="btn btn-primary" style="background-color: #557a95;border:none;">View ShipMaster</a>
+                            </center>
+
+
+                             
+
+
+
+                      
+
+                </div>
+            </div>
+            </div>
+        {{/each}}
+        {{else}}
+        <center><h3>No Data Available</h3></center>
+        {{/if}}
+        </div>
+        </div>
+
+
+
+
+
+
+
+      
+
+
+
+
+       
+
+    
+        
+    </body>
+</html>

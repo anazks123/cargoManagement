@@ -1,0 +1,70 @@
+{{>AdminHeader}}
+
+
+<div class="container col-md-6">
+    <div class="jumbotron" style="background-color:transparent!important;">
+        <center><h3 style="color: #557a95;font-weight:bolder;">Update Here</h3></center>
+        <form action="/updateShip" method="post">
+
+        <input type="hidden" name="_id" value="{{items3._id}}">
+        <div class="row col-md-12" style="margin-top: 20px;">
+                <div class="col">
+                <input type="text" class="form-control styling" placeholder="Ship Name" name="ShipName" value="{{items3.ShipName}}" required>
+                </div> 
+                
+            </div>
+            <div class="row col-md-12" style="margin-top: 20px;">
+                <div class="col">
+                <input type="text" class="form-control styling" placeholder="IMO Number" name="imoNumber" value="{{items3.ImoNumber}}" required>
+                </div> 
+                
+            </div>
+           
+              <div class="row col-md-12" style="margin-top: 20px;">
+                <div class="col">
+                    <select name="shipmastername" class="form-control styling" required>
+                        <option value="{{this._id}}" selected disabled>{{this.ShipMasterName.CustomerName}}</option>
+                    {{#each smDataa}} 
+                    
+                        
+                        <option value="{{this._id}}">
+                            {{ this.CustomerName}}
+                        </option>
+                    {{/each}}
+                     </select>
+                </div>
+                
+            </div>
+
+            <div class="row col-md-12" style="margin-top: 20px;">
+               
+                <div class="col">
+                <input type="text" class="form-control styling" placeholder="Capacity" name="capacity" value="{{items3.capacity}}">
+                </div>
+            </div>
+
+            
+            
+
+             
+
+             <input type="hidden" name="_csrf" value="{{csrfToken}}">
+       <center><button type="submit" class="btn btn-primary col-md-6 styling" style="margin-top: 20px;font-size:larger;background-color:#557a95;border:none;">Submit</center> 
+            
+            </form>
+
+
+            <div style="margin-top: 10px;">
+
+            {{#if hasErrors}}
+        <div class="alert" role="alert">
+           {{# each messages}}
+               <center><p style="color:red;font-weight:bolder"> {{this}}</p></center>
+           {{/each}}
+        </div>
+        {{/if}}
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,85 @@
+{{>ShipMasterHeader}}
+
+
+{{!-- {{# each transport1}}
+CustomerName : {{this.CustomerId.CustomerName}}
+Containers : {{this.NumberContainer}}
+City : {{this.city}}
+{{/each}} --}}
+
+
+
+
+
+<html>
+    <head>
+
+    </head>
+    <body><center>
+        <div class="jumbotron col-md-12">
+            <h3><center>Shipment Information</center></h3>
+           
+             <table class="table table-borderless" id="example4">
+            <thead>
+                <tr>
+                <th scope="col">ShipName</th>
+                <th scope="col">CustomerName</th>
+                <th scope="col">Number of containers</th>
+                <th scope="col">City</th>
+               
+                
+                    <th scope="col">Shipment Type</th>
+                    <th scope="col">Requested On</th>
+                    
+                    <th scope="col">Reminder</th>
+                   
+                   
+                    
+                      
+                </tr>
+            </thead>
+            <tbody>
+                {{# each transport1}}
+                 
+                <tr>
+                
+                        <td>{{this.ShipId.ShipName}}</td>
+                        <td>{{this.CustomerId.CustomerName}}</td>
+                        <td>{{this.NumberContainer}}</td>
+                         <td>{{this.city}}</td>
+                         <td>{{this.ShipmentType}}</td>
+                        <td>{{this.RequestedOn}}</td>
+                        {{# if this.Completed}}
+                            <td>Done</td>
+                        {{else}}
+                            {{# if this.StatusTransportation}}
+                                <td><a href="/changeStatus/{{this._id}}" class="btn btn-primary" style="background-color: #557a95;border:none;">Out for delivery</a></td>
+                            {{else}}
+                                <td><a href="/changeStatus1/{{this._id}}" class="btn btn-primary" style="background-color: #557a95;border:none;">Reached</a></td>
+                            {{/if}}
+                        {{/if}}
+                        
+                        
+                    </tr>
+                  
+                    
+                        
+                         
+                {{/each}}
+                        
+                       
+                       
+                
+                   
+                  
+                   
+
+                   
+            </tbody>
+            </table>
+        
+        </div>
+        </center>
+    </body>
+</html>
+

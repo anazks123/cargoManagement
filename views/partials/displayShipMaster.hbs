@@ -1,0 +1,111 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div class="jumbotron">
+            <table class="table table-borderless" id="example">
+            <thead>
+                <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Gender</th>
+                <th scope="col">City</th>
+
+                
+                    <th scope="col">Contact Number</th>
+                    <th scope="col">Registered Date</th>
+                     <th scope="col">Delete</th>
+                     
+                </tr>
+            </thead>
+            <tbody>
+                {{# each users}}
+                <tr>
+                
+                        <td>{{this.CustomerName}}</td>
+                        <td>{{this.email}}</td>
+                        <td>{{this.gender}}</td>
+                         <td>{{this.city}}</td>
+                         <td>{{this.Contact}}</td>
+                         <td>{{this.regDate}}</td>
+                         <td><a href="/delete/ShipMaster/{{this._id}}"  style="margin-top:10px;"><i class="fa fa-trash" aria-hidden="true" style="color:#557a95"></i></a></td>
+                          {{!-- <td><a href="/Update/{{this._id}}"  style="margin-top:10px;"><i class="fa fa-pencil" aria-hidden="true"  style="color:#557a95" ></i></a></td> --}}
+
+                      
+
+
+
+                         <div class="modal fade" id="exampleModal{{this.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Here </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    
+    
+       <div class="modal-body">
+<form action="/UpdateShipMasters?_csrf={{csrfToken}}" method="POST">
+
+     <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <div class="row">
+            <div class="col-md-6">
+                <b>ShipMasterName</b> <input type="text" class="form-control" name="custName" value="{{this.CustomerName}}">
+            </div>
+             <div class="col-md-6">
+                <b>Email</b>  <input type="text" class="form-control" name="email" value="{{this.email}}">
+            </div>
+        </div> 
+
+     
+
+       
+    
+         <div class="row" style="margin-top: 2%;">
+             
+            <div class="col-md-6">
+                 <b>City</b> 
+                <select class="form-control" name="city">
+                    <option selected disabled>{{this.city}}</option>
+                        {{# each items}}
+                            <option value="{{this.cityName}}">{{this.cityName}}</option>
+                        {{/each}}
+                      
+                    
+                </select>
+            </div>
+     
+          
+             <div class="col-md-6">
+                <b>Contact Number</b>  <input type="text" class="form-control" name="email" value="{{this.Contact}}">
+            </div>
+             <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+    </form>
+        
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
+       
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+                </tr>
+                
+             {{/each}}
+            </tbody>
+            </table>
+
+
+
+            
+        </div> 
+    </body>
+</html>

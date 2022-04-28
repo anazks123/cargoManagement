@@ -1,0 +1,129 @@
+{{>AdminHeader}}
+
+
+<div class="jumbotron" style="height:685px!important;">
+	<div class="row" style="margin-top: -65px;margin-left:-32px;">
+		<div class="col-2" style="background-color: #526069 !important;height: 685px!important;">
+			<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="margin-top: 15px;">
+				<a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true" style="color:white!important">Home</a>
+				<a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false" style="color:white!important">Manage ShipMaster</a>
+				<a class="nav-link" id="v-pills-ship-tab" data-toggle="pill" href="#v-pills-ship" role="tab" aria-controls="v-pills-ship" aria-selected="false" style="color:white!important">Manage Ship</a> 
+				<a class="nav-link" id="v-pills-request-tab" data-toggle="pill" href="#v-pills-request" role="tab" aria-controls="v-pills-request" aria-selected="false" style="color:white!important">Transportation Request</a>
+				<a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false" style="color:white!important">View Customers</a>
+				
+				</div>
+		</div>
+		<div class="col-9">
+			<div class="tab-content" id="v-pills-tabContent"  style="margin-left:5%;margin-top:2%;" >
+				<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+
+						{{>AdminReports}}
+				</div>
+				<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" >
+					
+					<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" style="background-color: gray;border-radius:100px;">
+						<li class="nav-item">
+							<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true" style="color: white!important">Add Shipmaster</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false" style="color: white!important">View Shipmaster</a>
+						</li>
+						
+					</ul>
+					<div class="tab-content" id="pills-tabContent">
+						<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+							{{>addshipmaster}}
+
+
+
+						</div>
+						<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">{{>displayShipMaster}}</div>
+						
+					</div>
+
+				</div>
+				<div class="tab-pane fade" id="v-pills-ship" role="tabpanel" aria-labelledby="v-pills-ship-tab">
+						
+				
+
+						<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" style="background-color: gray;border-radius:100px;">
+						<li class="nav-item">
+							<a class="nav-link active" id="pills-addship-tab" data-toggle="pill" href="#pills-addship" role="tab" aria-controls="pills-addship" aria-selected="true" style="color: white!important">Add Ship</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="pills-ship-tab" data-toggle="pill" href="#pills-ship" role="tab" aria-controls="pills-ship" aria-selected="false" style="color: white!important">View Ship</a>
+						</li>
+						
+					</ul>
+					<div class="tab-content" id="pills-tabContent">
+						<div class="tab-pane fade show active" id="pills-addship" role="tabpanel" aria-labelledby="pills-addship-tab">
+
+							{{>addship}}
+
+
+
+						</div>
+						<div class="tab-pane fade" id="pills-ship" role="tabpanel" aria-labelledby="pills-ship-tab">{{>displayship}}</div>
+						
+					</div>
+
+
+
+
+
+
+				</div>
+				<div class="tab-pane fade" id="v-pills-request" role="tabpanel" aria-labelledby="v-pills-request-tab">
+
+
+					<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" style="background-color: gray;border-radius:100px;">
+						<li class="nav-item">
+							<a class="nav-link active" id="pills-all-tab" data-toggle="pill" href="#pills-all" role="tab" aria-controls="pills-all" aria-selected="true" style="color: white!important">View All Requests</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="pills-accepted-tab" data-toggle="pill" href="#pills-accepted" role="tab" aria-controls="pills-accepted" aria-selected="false" style="color: white!important">Accepted</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="pills-rejected-tab" data-toggle="pill" href="#pills-rejected" role="tab" aria-controls="pills-rejected" aria-selected="false" style="color: white!important">Rejected</a>
+						</li>
+						
+					</ul>
+					<div class="tab-content" id="pills-tabContent">
+						<div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
+
+							{{>ViewTransportationRequestAdmin}}
+
+
+
+						</div>
+						<div class="tab-pane fade" id="pills-accepted" role="tabpanel" aria-labelledby="pills-accepted-tab">
+
+							{{>AcceptedTransportation}}
+						</div>
+						<div class="tab-pane fade" id="pills-rejected" role="tabpanel" aria-labelledby="pills-rejected-tab">{{>RejectedTransportation}}</div>
+						
+
+					</div>
+
+
+
+
+
+				</div>
+				<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">{{>displayCustomer}}
+					
+                     
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+ 
+                   
+
+
+	

@@ -1,0 +1,68 @@
+<style>
+    option:checked{
+        display: none;
+    }
+</style>
+{{>CustHeader}}
+
+<div class="container">
+
+    <center>
+        <div class="jumbotron col-md-6" style="margin-top: 7%;">
+            <h4 style="margin-left: -20%;color:#557a95;" ><b><u>Allocated ShipMaster</u></b></h4>
+
+               <div style="margin-top: 10%;">
+                
+                <form action="/getDashBoard" method="post">
+                    {{# each shipMasterData}}
+                    <div class="form-group row">
+                        {{!-- <input type="hidden" name="_id" value="{{allocData._id}}"> --}}
+                        <label for="staticEmail" class="col-sm-2"><b>ShipMasterName</b></label>
+                        <div class="col-sm-10
+                        ">
+                        {{!-- <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{allocData.CustomerId.CustomerName}}"> --}}
+                        {{!-- <input type="text" name="custname" value="{{this.ShipMasterName.CustomerName}}" style="text-align: center;" readonly> --}}
+                            
+                              {{this.ShipMasterName.CustomerName}}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                           
+                        <label for="staticEmail" class="col-sm-2"><b>Email</b></label>
+                        <div class="col-sm-10">
+                       {{!-- <input type="text" name="containers" value="{{allocData.NumberContainer}}" style="text-align: center;" readonly> --}}
+                        {{this.ShipMasterName.email}}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2"><b><u>City</u></b></label>
+                        <div class="col-sm-10">
+                        {{!-- <input type="text" name="city" value="{{allocData.city}}"  style="text-align: center;" readonly> --}}
+                          {{this.ShipMasterName.city}}
+                        </div>
+                    </div>
+                   
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2"><b><u>Contact</u></b></label>
+                        <div class="col-sm-10">
+                            {{!-- <input type="text" name="stype" value="{{allocData.ShipmentType}}"  style="text-align: center;" readonly> --}}
+                              {{this.ShipMasterName.Contact}}
+                        </div>
+                    </div>
+
+                   
+                    <div>
+                         <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                        <center><a href="/dashboard" class="btn btn-primary col-md-6" value="Dashboard" style="margin-top: 20px;background-color:#557a95;font-weight:bolder;border:none;">Dashboard</a></center>
+                    </div>
+                    {{/each}}
+                    </form>
+                    </div>
+                    </div>
+                    
+                    
+
+           
+        </div>
+    </center>
+</div>

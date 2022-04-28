@@ -1,0 +1,55 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div class="jumbotron">
+             <table class="table table-borderless" id="example5">
+            <thead>
+                <tr>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Number of containers</th>
+                <th scope="col">City</th>
+               
+                
+                    <th scope="col">Shipment Type</th>
+                     <th scope="col">Ship Allocation</th> 
+                   
+                   
+                      
+                </tr>
+            </thead>
+            <tbody>
+                {{# each transportationAccepted}}
+                <tr>
+                
+                        <td>{{this.CustomerId.CustomerName}}</td>
+                        <td>{{this.CustomerId.email}}</td>
+                        <td>{{this.NumberContainer}}</td>
+                         <td>{{this.city}}</td>
+                         <td>{{this.ShipmentType}}</td>
+
+                         {{#if this.AllocationStatus}}
+                          <td><a href="/pdfGenerate/{{this._id}}"  style="margin-top:10px;"><i class="fa fa-file-pdf-o" aria-hidden="true"  style="color:red" ></i></a></td>  
+                         {{else}}
+                          <td><a href="/shipAllocation/{{this._id}}"  style="margin-top:10px;"><i class="fa fa-pencil" aria-hidden="true"  style="color:#557a95" ></i></a></td> 
+                         {{/if}}
+
+                       
+                        
+                         {{!-- <td><a href="/delete/ShipMaster/{{this._id}}"  style="margin-top:10px;"><i class="fa fa-toggle-off" aria-hidden="true" style="color:#557a95"></i></a></td> --}}
+                          {{!-- <td><a href="/Update/{{this._id}}"  style="margin-top:10px;"><i class="fa fa-toggle-on" aria-hidden="true"  style="color:#557a95" ></i></a></td> --}}
+                           
+                          
+                </tr>
+                {{/each}}
+               
+            </tbody>
+            </table>
+
+
+         
+        </div>
+    </body>
+</html>

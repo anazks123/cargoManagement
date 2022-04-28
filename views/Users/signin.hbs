@@ -1,0 +1,86 @@
+
+
+<style>
+    .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #557a95;
+    border: none;
+   
+}
+
+
+.jumbotron
+{
+    background-color: #E3E3E3!important;
+    opacity: 1;
+    
+}
+.styling{
+    font-family: Calibri;
+}
+body{
+   /* background-image: url('/images/bg1.png');
+    background-size: cover;
+    background-repeat: no-repeat;*/
+
+}
+</style>
+<body>
+
+{{>VisitorHeader}}
+<div class="container col-md-6">
+    <div class="jumbotron" style="margin-top: 20%;">
+         <center><h3 style="color: #557a95;font-weight:bolder;">Account Login</h3></center>
+        <form action="/Users/signin" method="post">
+            
+
+            <div class="row col-md-18" style="margin-top: 20px;">
+                <div class="col">
+                <input type="text" class="form-control styling" placeholder="Email Address" name="email" >
+                </div>
+                
+            </div>
+
+             <div class="row col-md-18" style="margin-top: 20px;">
+            
+                   <div class="col">
+                <input type="password" class="form-control styling" placeholder="Password" name="password">
+                </div>
+                
+                
+            </div>
+
+            
+
+             <input type="hidden" name="_csrf" value="{{csrfToken}}">
+       <center><button type="submit" id="userlogin" class="btn btn-primary col-md-6" style="margin-top: 20px;" >GO</center> 
+        <center><a href="/Users/forgot" style="color:#557a95">Forgot your password?</a></center>
+            
+      <script type="text/javascript">
+                document.getElementById('userlogin').onclick = function(){
+                  swal("Good job!", "You clicked the button!", "success");
+                };
+
+        </script>
+            
+            </form>
+
+            
+
+            <div style="margin-top: 10px;">
+
+            {{#if hasErrors}}
+        <div class="alert" role="alert">
+           {{# each messages}}
+               <center><p style="color: red;font-weight:bolder;"> {{this}}</p></center>
+           {{/each}}
+        </div>
+        {{/if}}
+        </div>
+
+
+    </div>
+</div>
+
+ 
+
+</body>
